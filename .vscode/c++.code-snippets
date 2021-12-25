@@ -1,0 +1,14 @@
+{
+    "Include Guard": {
+        "scope": "cpp",
+        "prefix": "include guard",
+        "body": [
+            "#ifndef INCLUDED_$1_H",
+            "#define INCLUDED_$1_H",
+            "",
+            "$0",
+            "",
+            "#endif"
+        ]
+    },
+}
