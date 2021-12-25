@@ -9,7 +9,6 @@ namespace oFuManager {
     ll getProcessCounter();
     void setup();
     void run();
-
 };
 
 #endif

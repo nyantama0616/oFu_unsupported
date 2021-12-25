@@ -2,17 +2,15 @@
 
 #include "../headers/lib/debug.h"
 #include "../headers/oFuManager.h"
-#include "../headers/parts/LED.h"
+#include "../headers/parts/UltraSound.h"
 #include "../headers/lib/tips.h"
 
 using namespace std;
 
-#define pin 26
-
-LED red;
+UltraSound ult;
 void setup() {
     oFuManager::setup();
-    red = LED(pin, false);
+    ult = UltraSound(27, 17);
 }
 
 int main(void) {
@@ -21,8 +19,12 @@ int main(void) {
 
     while (true) {
         oFuManager::run();
-        red.run();
-        delay(50);
+        ult.run();
+        if (oFuManager::getProcessCounter() % 50 == 0) {
+            int dist = ult.getDist();
+            cout << "dist: " << dist << " cm" << endl;
+        }
+        delay(2);
     }
 
 }
